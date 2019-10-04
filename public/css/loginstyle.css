@@ -1,0 +1,57 @@
+body{
+    background-image:url(../img/background1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+/* positionnement du formulaire */
+#container{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+}
+/* rectangle du formulaire */
+form {
+    width:100%;                                  /* étirement vers la droite */
+    padding: 30px;                               /* étirement vers le bas droit */
+    border: 1px solid #f1f1f1;                 /* bordure */
+    background: #fff;                          /* arrière plan */
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); /* ombre */
+    border-radius: 10px;
+
+}
+#container h1{  /* taille du grand titre */
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+/* rectangle du l'id et du mot de passe */
+input[type=text], input[type=password] {
+    width: 100%;                                /* taille du rectangle */
+    padding: 12px 20px;                         /* étirement */
+    margin: 8px 0;                              /* étirement texte interne */
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 200px;
+
+}
+
+/* style pour tous les boutons */
+input[type=submit] {
+    background-color: #F48221;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 200px;
+
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: #53af57;                 /* couleur du texte interne */
+    border: 1px solid #53af57;
+    border-radius: 200px;
+}
