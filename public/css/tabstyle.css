@@ -77,7 +77,23 @@
     padding: 15px;
     color: #000000;
     }
-  
+   .nav u {
+    padding:0;
+    margin:0;
+    list-style:none;
+    text-align: center;
+  }
+   . nav li li {
+    max-height:0;
+    overflow: hidden;
+    transition: all .5s;
+    border-radius:0;
+    background: rgb(207, 233, 207);
+    box-shadow: none;
+    border:none;
+    margin:0
+ }
+
   /**
     App View
   */
