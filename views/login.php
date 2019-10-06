@@ -11,12 +11,10 @@
     <link rel="stylesheet" href="../public/css/loginstyle.css" media="screen" type="text/css" />
 </head>
     <body>
-            
         <div class="content">
             <div id="container">
                 
                 <!-- zone de connexion -->
-                
                 <form action="" method="POST">
                     <h1>Saisissez vos identifiants</h1>
                     
@@ -42,7 +40,7 @@ if(isset($_POST['submit'])){
         $password=$_POST['password'];
        //3-Traitement => Connexion dans une BD
              include_once('./baselogin.php');
-             $query = $pdo->query("SELECT * FROM `users` WHERE login='$login' and password='$password'");
+             $query = $pdo->query("SELECT * FROM `baselogin` WHERE login='$login' and password='$password'");
              //d) Recuperer resultat
              $resultat = $query->fetch();
              if(isset($resultat['id'])){

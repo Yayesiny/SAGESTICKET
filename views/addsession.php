@@ -5,43 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GesTick add-session</title>
-    <link rel="stylesheet" href="../public/css/addstyle.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="../public/css/menustyle.css" media="screen" type="text/css" />
 
 </head>
 <body>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
-<div class="app-container">
-  
-  <nav class="nav">
+    <div class="app-container">
+  <div>  
+    <div class="logo">
     <a href="#" class="nav__logo">
       LOGO
     </a>
-    <ul class="nav__list">
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Dashboard</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Session</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Utilisateur</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Administration</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Lorem</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Lorem</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Déconnexion</a>
-      </li>
-    </ul>
-  </nav>
-  
+    </div>
+
+    <ul id="menu-accordeon">
+        <li><a href="#">Tableau de bord</a>
+        </li>
+         <li><a href="#">Session</a>
+           <ul>
+              <li><a href="#" class="lien" id='creer'>Créer</a></li>
+
+              <li><a href="#">Lister</a></li>
+           </ul>
+        </li>
+        <li><a href="#">Utilisateurs</a>
+          <ul>
+              <li><a href="#">Créer</a></li>
+              <li><a href="#">Lister</a></li>
+           </ul>
+        </li>
+        <li><a href="#">Administration</a>
+        <li><a href="#">Déconnexion</a>
+     </ul>
+  </div>
   <div class="app-view">
     
     <nav class="utility-bar">
@@ -52,28 +49,76 @@
         </a>
       </div>
     </nav>
-    
     <main class="content">
-      <h1>Gestion des sessions</h1>
       <div class="testbox">
         <h1>Ajouter une session</h1>
       
-        <form action="/">
+        <form action="" method="POST">
          
-        <input type="text" name="name" id="name" placeholder="Nom" required/>
-        <input type="text" name="name" id="name" placeholder="Année" required/>
-        <label class="control-label" for="start-date-add"></label>
-        <input type="date" min="2017-01-01" name="Date de début">
-        <input type="date" name="Date de fin">
-        <input type="password" name="name"  placeholder="Effectif total" required/>        
-         <a href="#" class="button">Créer</a>
+        <div><label>
+                    Nom &nbsp; &nbsp; </label>
+                    <input type="text" name="presentation">
+        </div>
+    <div>
+                    <label>Année &nbsp; &nbsp;</label>
+                    <input type="text" name="texte">
+                   </div>
+                   <div>
+                    <label style="margin-right:50px;
+                    margin-left:50px">Date début &nbsp; &nbsp; </label>
+                    <input type="date" name="nombre" placeholder="">
+                    <div>
+                    <label style="margin-right:50px;
+                    margin-left:50px">Date fin &nbsp; &nbsp; </label>
+                    <input type="date" name="nombre" placeholder="">
+    </div>
+    <!-- div4 !-->
+    <div>
+                    <form method="post"></form>
+                    <label>Réferentiel &nbsp; &nbsp;
+                    </label>
+                    <select name="ref">
+                      <option value="Reférent digital">Référent Digital</option>
+                      <option value="Dev Web">Developpement Web</option>
+                      <option value="Data Artisan">Data Artisan</option>
+                    </select>
+    </div>
+    <div><label>
+                    <br> Effectif &nbsp; &nbsp; </label>
+                    <input type="text" name="presentation">
+    </div>
 
-        </form>
+      <input type="submit" value="valider" id='submit' style="margin-left:90px">
+      
+      <input type="submit" value="annuler" id='cancel' style="margin-left:90px">
+     
+
+      </form>
+      <?php
+//print_r($_POST);
+//1-Recupération des Infos provenant du formulaire
+ //2-validation des données
+if(isset($_POST['submit']))
+$nom= $_POST['nom'];
+$annee=$_POST['annee'];
+$debut= $_POST['debut'];
+$fin=$_POST['fin'];
+$total= $_POST['total'];
+ //3-Traitement => Connexion dans une BD
+ include_once('./sessiontab.php');
+ $query = $pdo->query("SELECT * FROM `basesession` WHERE nom='$nom' and annee='$annee' and debut='$debut' and debut='debut' and fin='fin' and effectif='effectif'");
+  //d) Recuperer resultat
+  $resultat = $query->fetch();
+  if(isset($resultat['id'])){
+     header("Location: sessiontab.php");  
+  
+?>
       </div>
     </main>
     
   </div>
-  
+ 
+
 </div>
 </body>
 </html>

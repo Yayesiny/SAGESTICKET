@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="../public/css/menustyle.css" media="screen" type="text/css" />
 
 </head>
+<?php
+             include_once('./baselogin.php');
+             $query = $pdo->query("SELECT * FROM `users` ");
+           $users= $query->fetchAll();
+          // var_dump($users) ;
+
+         ?>
 <body>
    
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
@@ -26,7 +33,6 @@
          <li><a href="#">Session</a>
            <ul>
               <li><a href="#" class="lien" id='creer'>Créer</a></li>
-
               <li><a href="#">Lister</a></li>
            </ul>
         </li>
@@ -64,6 +70,23 @@
             </tr>
           </thead>
           <tbody>
+          <?php 
+                    foreach ($users as $key => $user) {
+                   
+                ?>
+                    <tr>
+                       <td><?php echo $user['identifiant'];?></td>
+                       <td><?php echo $user['nom'];?></td>
+                       <td><?php echo $user['prenom'];?></td>
+                       <td><?php echo $user['mail'];?></td>
+                       <td><?php echo $user['telephone'];?></td>
+                       <td><?php echo $user['profil'];?></td>
+                       
+                    </tr>
+                <?php
+                     
+                    }
+                 ?>
             <tr>
               <td>
                 <a href="#">007</a>

@@ -5,42 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GesTick add-user</title>
-    <link rel="stylesheet" href="../public/css/addstyle.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="../public/css/menustyle.css" media="screen" type="text/css" />
 
 </head>
 <body>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
-<div class="app-container">
-  
-  <nav class="nav">
+    <div class="app-container">
+  <div>  
+    <div class="logo">
     <a href="#" class="nav__logo">
       LOGO
     </a>
-    <ul class="nav__list">
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Dashboard</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Session</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Utilisateur</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Administration</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Lorem</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Lorem</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Déconnexion</a>
-      </li>
-    </ul>
-  </nav>
+    </div>
+
+    <ul id="menu-accordeon">
+        <li><a href="#">Tableau de bord</a>
+        </li>
+         <li><a href="#">Session</a>
+           <ul>
+              <li><a href="#" class="lien" id='creer'>Créer</a></li>
+              <li><a href="#">Lister</a></li>
+           </ul>
+        </li>
+        <li><a href="#">Utilisateurs</a>
+          <ul>
+              <li><a href="#">Créer</a></li>
+              <li><a href="#">Lister</a></li>
+           </ul>
+        </li>
+        <li><a href="#">Administration</a>
+        <li><a href="#">Déconnexion</a>
+     </ul>
+  </div>  
+ 
   
   <div class="app-view">
     
