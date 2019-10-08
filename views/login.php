@@ -11,25 +11,24 @@
     <link rel="stylesheet" href="../public/css/loginstyle.css" media="screen" type="text/css" />
 </head>
     <body>
+            
         <div class="content">
             <div id="container">
                 
                 <!-- zone de connexion -->
+                
                 <form action="" method="POST">
-                    <h1>Saisissez vos identifiants</h1>
+                    <h1>Identifiez-vous</h1>
                     
-                    <label><b>Identifiant</b></label>
-                    <input type="text" placeholder="Entrer votre identifiant" name="username" required>
-
-                    <label><b>Mot de passe</b></label>
-                    <input type="password" placeholder="Entrer le mot de passe" name="password" required>
-                  
-                    <input type="submit" id='submit' name="submit" value='LOGIN' >
+                    Identifiant: <input type="text" name="login" /><br />
+                    Mot de passe: <input type="password" name="password" /><br />
+                    <input type = "submit" name="" value="login" />
                 
                 </form>
             </div>
        </div>
-       <?php
+
+<?php
 //print_r($_POST);
 //1-Recupération des Infos provenant du formulaire
  //2-validation des données

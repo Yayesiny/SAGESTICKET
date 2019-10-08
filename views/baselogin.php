@@ -4,7 +4,7 @@
          //b) Selectionner BD
          try {
  
-            $pdo = new PDO($dsn, 'root' , 'Oulimata1@');
+            $pdo = new PDO($dsn, 'Rodriiguez' , '@CF24//');
            // exit('connexion à la base de données');
             
             }
