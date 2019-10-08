@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../public/css/menustyle.css" media="screen" type="text/css" />
 
 </head>
+
+<body>
+   
 <?php
              include_once('./baselogin.php');
              $query = $pdo->query("SELECT * FROM `users` ");
@@ -15,8 +18,7 @@
           // var_dump($users) ;
 
          ?>
-<body>
-   
+
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
 <div class="app-container">
@@ -30,17 +32,19 @@
     <ul id="menu-accordeon">
         <li><a href="#">Tableau de bord</a>
         </li>
-         <li><a href="#">Session</a>
+         <li><?php echo'<a href="sessiontab.php">Session</a>';?>
            <ul>
-              <li><a href="#" class="lien" id='creer'>Créer</a></li>
-              <li><a href="#">Lister</a></li>
+              <li><?php echo'<a href="addsession.php">Créer</a>';?></li>
+              <li><?php echo'<a href="sessiontab.php">Lister</a>';?></li>
+
            </ul>
         </li>
-        <li><a href="#">Utilisateurs</a>
+        <li><?php echo'<a href="usertab.php">Utilisateurs</a>';?>
           <ul>
-              <li><a href="#">Créer</a></li>
-              <li><a href="#">Lister</a></li>
-           </ul>
+           <li><?php echo'<a href="addusers.php">Créer</a>';?></li>
+           <li><?php echo'<a href="usertab.php">Lister</a>';?>
+
+          </ul>
         </li>
         <li><a href="#">Administration</a>
         <li><a href="#">Déconnexion</a>
@@ -60,13 +64,11 @@
         <table>
           <thead>
             <tr>
-              <th>Identifiant</th>
               <th>Nom</th>
               <th>Prénom</th>
-              <th>Adresse mail</th>
-              <th>Téléphone</th>
               <th>Profil</th>
-              <th>Actions</th>
+              <th>Login</th>
+
             </tr>
           </thead>
           <tbody>
@@ -75,59 +77,17 @@
                    
                 ?>
                     <tr>
-                       <td><?php echo $user['identifiant'];?></td>
                        <td><?php echo $user['nom'];?></td>
                        <td><?php echo $user['prenom'];?></td>
-                       <td><?php echo $user['mail'];?></td>
-                       <td><?php echo $user['telephone'];?></td>
                        <td><?php echo $user['profil'];?></td>
+                       <td><?php echo $user['login'];?></td>
                        
                     </tr>
                 <?php
                      
                     }
                  ?>
-            <tr>
-              <td>
-                <a href="#">007</a>
-              </td>
-              <td>Lorem</td>
-              <td>Ipsum</td>
-              <td>nom@mail.com</td>
-              <td>781234567</td>
-              <td>Lorem</td>
-              <td>
-                <button class="btn">Edit</button>
-                <button class="btn btn-delete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">008</a>
-              </td>
-              <td>Lorem</td>
-              <td>Ipsum</td>
-              <td>nom@mail.com</td>
-              <td>781234567</td>
-              <td>Lorem</td>
-              <td>
-                <button class="btn">Edit</button>
-                <button class="btn btn-delete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">009</a>
-              </td>
-              <td>Lorem</td>
-              <td>Ipsum</td>
-              <td>nom@mail.com</td>
-              <td>781234567</td>
-              <td>Lorem</td>
-              <td>
-                <button class="btn">Edit</button>
-                <button class="btn btn-delete">Delete</button>
-              </td>
+       
             </tr>
           </tbody>
         </table>
@@ -135,21 +95,7 @@
     </main>
     
   </div>
-  
-  
 </div>
-<?php
-//print_r($_POST);
-//1-Recupération des Infos provenant du formulaire
- //2-validation des données
-if(isset($_POST['creer'])){
 
-             include_once('./userbase.php');
-             //d) Recuperer resultat
-             $resultat = $query->fetch();
-    
-    
-}
-?>
 </body>
 </html>

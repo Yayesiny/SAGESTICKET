@@ -9,8 +9,8 @@
 
 </head>
 <body>
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
     <div class="app-container">
   <div>  
     <div class="logo">
@@ -22,63 +22,55 @@
     <ul id="menu-accordeon">
         <li><a href="#">Tableau de bord</a>
         </li>
-         <li><a href="#">Session</a>
+         <li><?php echo'<a href="sessiontab.php">Session</a>';?>
            <ul>
-              <li><a href="#" class="lien" id='creer'>Créer</a></li>
-              <li><a href="#">Lister</a></li>
+              <li><?php echo'<a href="addsession.php">Créer</a>';?></li>
+              <li><?php echo'<a href="sessiontab.php">Lister</a>';?></li>
+
            </ul>
         </li>
-        <li><a href="#">Utilisateurs</a>
+        <li><?php echo'<a href="usertab.php">Utilisateurs</a>';?>
           <ul>
-              <li><a href="#">Créer</a></li>
-              <li><a href="#">Lister</a></li>
-           </ul>
+           <li><?php echo'<a href="addusers.php">Créer</a>';?></li>
+           <li><?php echo'<a href="usertab.php">Lister</a>';?>
+
+          </ul>
         </li>
         <li><a href="#">Administration</a>
         <li><a href="#">Déconnexion</a>
      </ul>
-  </div>  
- 
-  
-  <div class="app-view">
-    
-    <nav class="utility-bar">
-      <div class="utility-bar__inner">
-        <a href="#" class="utility-bar__account">
-          <span class="utility-bar__account-avatar"></span>
-          <span class="utility-bar__account-name">Assistant Dir</span>
-        </a>
-      </div>
-    </nav>
-    
+  </div>
     <main class="content">
+       <?php
+          if (isset($_GET['error']) ){
+                echo $_GET['error'];
+          }
+       ?>
       <h1>Gestion des utilisateurs</h1>
       <div class="testbox">
-        <h1>Ajouter un utilisateur</h1>
-      
-        <form action="/">
-         
+        <h1>Ajouter un utilisateur</h1>   
+        <form action="../controlleurs/formusers.php" method="post">    
         <label><i class="icon-envelope "></i></label>
-        <input type="text" name="name" id="name" placeholder="Nom" required/>
+        <input type="text" name="nom" id="name" placeholder="Nom" required/>
         <label><i class="icon-user"></i></label>
-        <input type="text" name="name" id="name" placeholder="Prénom" required/>
+        <input type="text" name="prenom" id="name" placeholder="Prénom" required/>
         <label><i class="icon-shield"></i></label>
-        <input type="text" name="name" id="name" placeholder="Profil" required/>
+        <input type="text" name="profil" id="name" placeholder="Profil" required/>
         <label><i class="icon-shield"></i></label>
-        <input type="text" name="name" id="name" placeholder="Identifiant" required/>
+        <input type="text" name="login" id="name" placeholder="login"/>
         <label><i class="icon-shield"></i></label>
-        <input type="password" name="name" id="name" placeholder="Mot de passe" required/>
+        <input type="password" name="password" id="name" placeholder="Mot de passe" required/>
         <label><i class="icon-shield"></i></label>
-        <input type="password" name="name" id="name" placeholder="Confirmer mot de passe" required/>
-        
-         <a href="#" class="button">Créer</a>
-
+        <input type="password" name="confirm_password" id="name" placeholder="Confirmer mot de passe" required/>
+        <label><i class="icon-shield"></i></label>
+                 <button type="submit" class="button" name="creer" >Créer</button>
         </form>
       </div>
     </main>
-    
   </div>
-  
 </div>
+
+
+
 </body>
 </html>

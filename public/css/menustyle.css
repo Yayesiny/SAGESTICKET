@@ -232,4 +232,13 @@ a.button:hover {
     flex-direction: column;
   }
 
+  /** Reftable */
+  .btn {  font-size: 14px;
+    font-weight: 600;
+    color: white;
+    padding: 6px 25px 0px 20px;
+   
+    }
+
+
   

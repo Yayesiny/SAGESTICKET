@@ -5,42 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GesTick show session</title>
-    <link rel="stylesheet" href="../public/css/tabstyle.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="../public/css/menustyle.css" media="screen" type="text/css" />
 
 </head>
 <body>
+   
+<?php
+             include_once('./basesession.php');
+             $query = $pdo->query("SELECT * FROM `basesession` ");
+           $users= $query->fetchAll();
+          // var_dump($users) ;
+
+         ?>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
-<div class="app-container">
-  
-  <nav class="nav">
+    <div class="app-container">
+  <div>  
+    <div class="logo">
     <a href="#" class="nav__logo">
       LOGO
     </a>
-    <ul class="nav__list">
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Dashboard</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Session</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Utilisateur</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Administration</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Lorem</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Lorem</a>
-      </li>
-      <li class="nav__list-item">
-        <a href="#" class="nav__item-link">Déconnexion</a>
-      </li>
-    </ul>
-  </nav>
+    </div>
+
+    <ul id="menu-accordeon">
+        <li><a href="#">Tableau de bord</a>
+        </li>
+         <li><?php echo'<a href="sessiontab.php">Session</a>';?>
+           <ul>
+              <li><?php echo'<a href="addsession.php">Créer</a>';?></li>
+              <li><?php echo'<a href="sessiontab.php">Lister</a>';?></li>
+
+           </ul>
+        </li>
+        <li><?php echo'<a href="usertab.php">Utilisateurs</a>';?>
+          <ul>
+           <li><?php echo'<a href="addusers.php">Créer</a>';?></li>
+           <li><?php echo'<a href="usertab.php">Lister</a>';?>
+
+          </ul>
+        </li>
+        <li><a href="#">Administration</a>
+        <li><a href="#">Déconnexion</a>
+     </ul>
+  </div>
   
   <div class="app-view">
     
@@ -62,55 +69,28 @@
               <th>Année</th>
               <th>Date début</th>
               <th>Date fin</th>
-              <th>Téléphone</th>
               <th>Effectif</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <a href="#">Lorem Ipsum</a>
-              </td>
-              <td>2019</td>
-              <td>15 Octobre 2019</td>
-              <td>15 Octobre 2019</td>
-              <td>7812345678</td>
-              <td>50</td>
-              <td>
-                <button class="btn">Edit</button>
-                <button class="btn btn-delete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">Lorem Ipsum</a>
-              </td>
-              <td>2019</td>
-              <td>15 Octobre 2019</td>
-              <td>15 Octobre 2019</td>
-              <td>7812345678</td>
-              <td>50</td>
-              <td>
-                <button class="btn">Edit</button>
-                <button class="btn btn-delete">Delete</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="#">Lorem Ipsum</a>
-              </td>
-              <td>2019</td>
-              <td>15 Octobre 2019</td>
-              <td>15 Octobre 2019</td>
-              <td>7812345678</td>
-              <td>50</td>
-              <td>
-                <button class="btn">Edit</button>
-                <button class="btn btn-delete">Delete</button>
-              </td>
-            </tr>
+        
           </tbody>
+          <?php 
+                    foreach ($users as $key => $user) {
+                   
+                ?>
+                    <tr>
+                       <td><?php echo $user['nom'];?></td>
+                       <td><?php echo $user['annee'];?></td>
+                       <td><?php echo $user['debut'];?></td>
+                       <td><?php echo $user['fin'];?></td>
+                       <td><?php echo $user['total'];?></td>
+                       
+                    </tr>
+                <?php
+                     
+                    }
+                 ?>
         </table>
       </main>
       

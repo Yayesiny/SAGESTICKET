@@ -22,18 +22,26 @@
     <ul id="menu-accordeon">
         <li><a href="#">Tableau de bord</a>
         </li>
-         <li><a href="#">Session</a>
+         <li><?php echo'<a href="sessiontab.php">Session</a>';?>
            <ul>
-              <li><a href="#" class="lien" id='creer'>Créer</a></li>
+              <li><?php echo'<a href="addsession.php">Créer</a>';?></li>
+              <li><?php echo'<a href="sessiontab.php">Lister</a>';?></li>
 
-              <li><a href="#">Lister</a></li>
            </ul>
         </li>
-        <li><a href="#">Utilisateurs</a>
+        <li><?php echo'<a href="usertab.php">Utilisateurs</a>';?>
           <ul>
-              <li><a href="#">Créer</a></li>
-              <li><a href="#">Lister</a></li>
-           </ul>
+           <li><?php echo'<a href="addusers.php">Créer</a>';?></li>
+           <li><?php echo'<a href="usertab.php">Lister</a>';?>
+
+          </ul>
+        </li>
+        <li><?php echo'<a href="reftab.php">Référentiels</a>';?>
+          <ul>
+           <li><?php echo'<a href="addref.php">Ajouter</a>';?></li>
+           <li><?php echo'<a href="reftab.php">Lister</a>';?>
+
+          </ul>
         </li>
         <li><a href="#">Administration</a>
         <li><a href="#">Déconnexion</a>
@@ -50,75 +58,48 @@
       </div>
     </nav>
     <main class="content">
+    <?php
+          if (isset($_GET['error']) ){
+                echo $_GET['error'];
+          }
+       ?>
+  
       <div class="testbox">
         <h1>Ajouter une session</h1>
       
-        <form action="" method="POST">
+        <form action="../controlleurs/formsession.php" method="post">    
          
-        <div><label>
+         <div><label>
                     Nom &nbsp; &nbsp; </label>
-                    <input type="text" name="presentation">
-        </div>
-    <div>
+                    <input type="text" name="nom">
+         </div>
+         <div>
                     <label>Année &nbsp; &nbsp;</label>
-                    <input type="text" name="texte">
+                    <input type="text" name="annee">
                    </div>
                    <div>
                     <label style="margin-right:50px;
                     margin-left:50px">Date début &nbsp; &nbsp; </label>
-                    <input type="date" name="nombre" placeholder="">
+                    <input type="date" name="date_debut" placeholder="">
                     <div>
                     <label style="margin-right:50px;
                     margin-left:50px">Date fin &nbsp; &nbsp; </label>
-                    <input type="date" name="nombre" placeholder="">
-    </div>
-    <!-- div4 !-->
-    <div>
-                    <form method="post"></form>
-                    <label>Réferentiel &nbsp; &nbsp;
-                    </label>
-                    <select name="ref">
-                      <option value="Reférent digital">Référent Digital</option>
-                      <option value="Dev Web">Developpement Web</option>
-                      <option value="Data Artisan">Data Artisan</option>
-                    </select>
-    </div>
-    <div><label>
-                    <br> Effectif &nbsp; &nbsp; </label>
-                    <input type="text" name="presentation">
-    </div>
-
-      <input type="submit" value="valider" id='submit' style="margin-left:90px">
+                    <input type="date" name="date_fin" placeholder="">
+         </div>
       
-      <input type="submit" value="annuler" id='cancel' style="margin-left:90px">
-     
-
-      </form>
-      <?php
-//print_r($_POST);
-//1-Recupération des Infos provenant du formulaire
- //2-validation des données
-if(isset($_POST['submit']))
-$nom= $_POST['nom'];
-$annee=$_POST['annee'];
-$debut= $_POST['debut'];
-$fin=$_POST['fin'];
-$total= $_POST['total'];
- //3-Traitement => Connexion dans une BD
- include_once('./sessiontab.php');
- $query = $pdo->query("SELECT * FROM `basesession` WHERE nom='$nom' and annee='$annee' and debut='$debut' and debut='debut' and fin='fin' and effectif='effectif'");
-  //d) Recuperer resultat
-  $resultat = $query->fetch();
-  if(isset($resultat['id'])){
-     header("Location: sessiontab.php");  
-  
-?>
-      </div>
-    </main>
+       
+         <div><label>
+                    <br> Effectif &nbsp; &nbsp; </label>
+                    <input type="text" name="effectif">
+         </div>
     
+         <button type="submit" class="button" name="cancel" >Annuler</button>
+         <button type="submit" class="button" name="creer" >Créer</button>
+        </form>
+     </div>
+    </main>
   </div>
- 
-
 </div>
+
 </body>
 </html>

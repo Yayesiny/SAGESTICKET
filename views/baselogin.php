@@ -5,6 +5,7 @@
          try {
  
             $pdo = new PDO($dsn, 'root' , 'Oulimata1@');
+           // exit('connexion à la base de données');
             
             }
             catch (PDOException $exception) {
